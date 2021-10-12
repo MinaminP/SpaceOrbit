@@ -2,21 +2,6 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
         planet : 
         {
             type:cc.Node,
@@ -47,10 +32,10 @@ cc.Class({
 
     update (dt) {
         if(this.isFlipped == true){
-            this.node.scale.x = -1;
+            this.node.scaleX = -1;
             this.planet.angle += (dt * this.speed)
         } else if(this.isFlipped == false){
-            this.node.scale.x = 1;
+            this.node.scaleX = 1;
             this.planet.angle -= (dt * this.speed);
         }
     },
