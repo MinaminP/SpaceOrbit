@@ -18,12 +18,17 @@ cc.Class({
            type:cc.Node,
            default:null
        },
+       bulletSpd:0,
        timer:0,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad () {
+        this.schedule(function(){
+            this.shoot()
+        }, this.timer)
+    },
 
     start () {
 
@@ -34,14 +39,9 @@ cc.Class({
         newBullet.setPosition(this.node.position.x, this.node.position.y);
         this.node.addChild(newBullet);
 
-       var actionBy = cc.moveTo(0.1, cc.v2(this.target.x,this.target.y));
-        var destruction = cc.callFunc(function(){
-            newBullet.destroy();
-        }, this);
-        var seq = cc.sequence(actionBy, destruction);
-        newBullet.runAction(seq)
+      cc.tween(newBullet).to(this.bulletSpd,{position: this.target.position}, {easing: 'linear'}).start();
      },
     update (dt) {
-        this.shoot();
+        
     },
 });
