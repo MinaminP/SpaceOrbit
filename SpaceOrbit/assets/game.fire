@@ -563,6 +563,9 @@
     "target": {
       "__id__": 6
     },
+    "canvasNode": {
+      "__id__": 2
+    },
     "bulletSpd": 1,
     "timer": 1,
     "_id": "32zlyBXdhMGIwWgqyaqGhc"

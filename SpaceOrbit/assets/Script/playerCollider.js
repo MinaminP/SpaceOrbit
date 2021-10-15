@@ -16,6 +16,7 @@ cc.Class({
     onCollisionEnter(other, self){
         if(other.tag == 1){
             this.node.destroy();
+            cc.director.loadScene('gameOver');
         } else if (other.tag == 2){
             this.score++;
             //debug.log(this.score);
@@ -28,7 +29,7 @@ cc.Class({
 
     update (dt) {
         if(this.score == 24){
-            cc.director.loadScene('gameOver');
+            cc.director.loadScene('game');
         }
     },
 });

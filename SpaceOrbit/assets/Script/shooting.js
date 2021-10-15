@@ -11,6 +11,11 @@ cc.Class({
            type:cc.Node,
            default:null
        },
+       canvasNode : 
+        {
+           type:cc.Node,
+           default:null,
+        },
 
        bulletSpd:0,
        timer:0,
@@ -33,7 +38,14 @@ cc.Class({
         newBullet.setPosition(this.node.position.x, this.node.position.y);
         this.node.addChild(newBullet);
 
-      cc.tween(newBullet).to(this.bulletSpd,{position: this.target.position}, {easing: 'linear'}).start();
+        var parentNode = this.target.parent;
+        var pos = parentNode.convertToWorldSpaceAR(this.target.position);
+        pos = this.canvasNode.convertToNodeSpaceAR(pos);
+
+      cc.tween(newBullet).to(this.bulletSpd,{position: pos}, {easing: 'linear'}).call(()=>{
+        newBullet.destroy();
+        }).start();
+      cc.tween(newBullet).delay(1).to()
      },
 
     update (dt) {
