@@ -1,10 +1,3 @@
-// Learn cc.Class:
-//  - https://docs.cocos.com/creator/manual/en/scripting/class.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-
 cc.Class({
     extends: cc.Component,
 
@@ -18,6 +11,7 @@ cc.Class({
            type:cc.Node,
            default:null
        },
+
        bulletSpd:0,
        timer:0,
     },
@@ -41,6 +35,7 @@ cc.Class({
 
       cc.tween(newBullet).to(this.bulletSpd,{position: this.target.position}, {easing: 'linear'}).start();
      },
+
     update (dt) {
         
     },
