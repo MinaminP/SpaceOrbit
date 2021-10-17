@@ -24,9 +24,10 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
+        var timerLevel = this.timer / GlobalData.level;
         this.schedule(function(){
             this.shoot()
-        }, this.timer)
+        }, timerLevel)
     },
 
     start () {
@@ -42,10 +43,11 @@ cc.Class({
         var pos = parentNode.convertToWorldSpaceAR(this.target.position);
         pos = this.canvasNode.convertToNodeSpaceAR(pos);
 
-      cc.tween(newBullet).to(this.bulletSpd,{position: pos}, {easing: 'linear'}).call(()=>{
+        var bulletLevel = this.bulletSpd / GlobalData.level;
+
+      cc.tween(newBullet).to(bulletLevel,{position: pos}, {easing: 'linear'}).call(()=>{
         newBullet.destroy();
         }).start();
-      cc.tween(newBullet).delay(1).to()
      },
 
     update (dt) {

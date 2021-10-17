@@ -2,7 +2,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        score:0,
+        //score:0,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -10,6 +10,9 @@ cc.Class({
     onLoad () {
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
+        window.Scoring = {
+            score:0,
+        };
         
     },
 
@@ -18,8 +21,7 @@ cc.Class({
             this.node.destroy();
             cc.director.loadScene('gameOver');
         } else if (other.tag == 2){
-            this.score++;
-            //debug.log(this.score);
+            Scoring.score++;
         }
     },
 
@@ -28,7 +30,9 @@ cc.Class({
     },
 
     update (dt) {
-        if(this.score == 24){
+        //cc.log(Scoring.score);
+        if(Scoring.score == 24){
+            GlobalData.level++; 
             cc.director.loadScene('game');
         }
     },

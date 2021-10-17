@@ -2,17 +2,16 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        planet : 
-        {
-            type:cc.Node,
-            default:null
+        pointNodes: {
+            default: [],
+            type: cc.Node,
         },
-        speed:0,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
+
     },
 
     start () {
@@ -20,7 +19,8 @@ cc.Class({
     },
 
     update (dt) {
-        this.planet.angle -= (dt * this.speed)
+        if(Scoring.score == 24){
+                this.pointNodes[0].node.active = true;
+        }
     },
-    
 });
