@@ -17,12 +17,12 @@ cc.Class({
     onLoad () {
         window.GlobalData = {
             level: 1,
+            levelCleared: false,
         };
-        cc.log(GlobalData.level);
-        cc.log(this.speed);
+        this.schedule(function(){
+            this.proggression();
+        }, 10)
         this.node.parent.on('mousedown', this.change_rotation, this);
-        //var action = cc.repeatForever(cc.rotateBy(5,360));
-       // this.node.runAction(action);
     },
 
     change_rotation:function(event){
@@ -33,13 +33,16 @@ cc.Class({
        }
     },
 
+    proggression:function(){
+        GlobalData.level++;
+    },
 
     start () {
 
     },
 
     update (dt) {
-        var levelling = this.speed + (GlobalData.level * 5);
+        var levelling = this.speed + (GlobalData.level * 3);
         if(this.isFlipped == true){
             this.node.scaleX = -1;
             this.planet.angle += (dt * levelling)

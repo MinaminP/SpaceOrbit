@@ -2,16 +2,14 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        newPlace:0,
+        
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onCollisionEnter(other, self){
         if(other.tag == 0){
-            //this.node.scaleX = 0;
-            //this.node.scaleY = 0;
-            //this.node.x = this.newPlace;
+            //this.node.destroy();
             this.node.active = false;
         }
     },
@@ -26,10 +24,6 @@ cc.Class({
     },
 
     update (dt) {
-        if(Scoring.score == 24){
-            Scoring.score = 0;
-            //this.node.scaleX = 1;
-            //this.node.scaleY = 1;
-        }
+        
     },
 });

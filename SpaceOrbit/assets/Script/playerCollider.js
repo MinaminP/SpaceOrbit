@@ -22,6 +22,7 @@ cc.Class({
             cc.director.loadScene('gameOver');
         } else if (other.tag == 2){
             Scoring.score++;
+            cc.log(Scoring.score);
         }
     },
 
@@ -30,10 +31,6 @@ cc.Class({
     },
 
     update (dt) {
-        //cc.log(Scoring.score);
-        if(Scoring.score == 24){
-            GlobalData.level++; 
-            cc.director.loadScene('game');
-        }
+        
     },
 });

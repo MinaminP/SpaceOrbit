@@ -54,7 +54,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        81.132,
+        115.132,
         180.189,
         0,
         0,
@@ -136,7 +136,6 @@
       "__id__": 1
     },
     "_enabled": true,
-    "isShowing": true,
     "_id": ""
   },
   {
